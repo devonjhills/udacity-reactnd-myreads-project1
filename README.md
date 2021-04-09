@@ -93,12 +93,6 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 # REFERENCES 
 
-help with using a state to control if pag should re-render while using functional components;
-`https://knowledge.udacity.com/questions/427085`
+[Filtering JSON into seperate components](https://stackoverflow.com/questions/54224988/sorting-and-then-filtering-json-data-into-separate-components)
 
-help with filtering JSON into seperate components:
-`https://stackoverflow.com/questions/54224988/sorting-and-then-filtering-json-data-into-separate-components`
-
-optional chaining and nullish coalescing
-`shelf: thisBook?.shelf ?? 'none',`
-`https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript/`
+[Optional Chaining and Nullish Coalescing](https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript/)

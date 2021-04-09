@@ -31,7 +31,7 @@ export const update = (book, shelf) =>
     },
     body: JSON.stringify({ shelf })
   }).then(res => res.json())
-  .then(console.log('test update'))
+    .then(console.log('test update'))
 
 export const search = (query) =>
   fetch(`${api}/search`, {

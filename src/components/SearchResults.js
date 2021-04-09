@@ -8,19 +8,15 @@ const SearchResults = ({ books, updateBook }) => {
   const [query, setQuery] = useState("");
   const [bookResults, setBookResults] = useState([]);
 
-
   const handleQuery = async (query) => {
     setQuery(query);
-    console.log(query);
     if (query !== '') {
       await BooksAPI.search(query).then((data) => {
         if (!data || data.error) {
-          console.log('no results found for this search string');
           setBookResults([]);
         } else if (Array.isArray(data)) {
           data = data.map((book) => {
             const thisBook = books.find(({ id }) => book.id === id);
-            console.log(thisBook);
             return {
               ...book,
               shelf: thisBook?.shelf ?? 'none',

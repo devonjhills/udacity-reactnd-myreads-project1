@@ -4,9 +4,9 @@ const MoveToShelfMenu = ({ book, updateBook }) => {
 
   return (
     <div className="book-shelf-changer">
-      <select 
-      value={book.shelf ? book.shelf : 'none'} 
-      onChange={(event) => {updateBook(book, event.target.value)}}
+      <select
+        value={book.shelf ? book.shelf : 'none'}
+        onChange={(event) => { updateBook(book, event.target.value) }}
       >
         <option value="move" disabled>Move to...</option>
 
