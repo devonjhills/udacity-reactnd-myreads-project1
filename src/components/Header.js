@@ -1,19 +1,25 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBook, faBookReader, faPlus } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
+import { Navbar, Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <div className="header-container">
-      <div className="header-image">
-        <img src='b1.png' alt='Bat left' />
-      </div>
-      <div className="header-text">
-        <h1>MyReads: A Book Tracking App</h1>
-        <h2>By Devon Hills, for Udacity React Nanodegree Course</h2>
-      </div>
-      <div className="header-image">
-        <img src='b2.png' alt='Bat right' />
-      </div>
-    </div>
+    <Navbar fixed='top' bg="dark" variant="dark" >
+      <Navbar.Brand eventkey="disabled" disabled>
+        <FontAwesomeIcon className="mr-1" icon={faBook} />
+        MyReads
+      </Navbar.Brand>
+      <Nav>
+        <Nav.Link as={Link} to="/">
+          <FontAwesomeIcon className="mr-1" icon={faBookReader} />My Shelves
+        </Nav.Link>
+        <Nav.Link as={Link} to="/search">
+          <FontAwesomeIcon className="mr-1" icon={faPlus} />Add New Books
+        </Nav.Link>
+      </Nav>
+    </Navbar>
   )
 }
 

@@ -1,20 +1,18 @@
 import React from 'react'
+import { Row } from 'react-bootstrap'
 import BookCard from './BookCard'
 
 const BookList = ({ books, updateBook }) => {
   return (
-    <div className="bookshelf-books">
-      <ol className="books-grid">
+    <Row className="m-0">
         {books.map(book => (
-          <li key={book.id}>
-            <BookCard
-              updateBook={updateBook}
-              book={book}
-            />
-          </li>
+          <BookCard
+            key={book.id}
+            updateBook={updateBook}
+            book={book}
+          />
         ))}
-      </ol>
-    </div>
+    </Row>
   )
 }
 

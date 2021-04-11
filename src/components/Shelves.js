@@ -1,4 +1,5 @@
 import React from 'react'
+import { Jumbotron } from 'react-bootstrap'
 import BookList from './BookList'
 import ShelfHeader from './ShelfHeader'
 
@@ -17,13 +18,13 @@ const Shelves = ({ books, updateBook, shelfName }) => {
   }
 
   return (
-    <div className="bookshelf">
+    <Jumbotron className="my-jumbo">
       <ShelfHeader heading={formatHeading(shelfName)} />
       <BookList
         updateBook={updateBook}
         books={books}
       />
-    </div>
+    </Jumbotron>
   )
 }
 

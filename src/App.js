@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import * as BooksAPI from './BooksAPI'
 import './App.css'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import SearchButton from './components/SearchButton'
+import * as BooksAPI from './BooksAPI'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import SearchResults from './components/SearchResults'
-import Shelves from './components/Shelves';
 import Header from './components/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Homepage from './components/Homepage';
 
 const App = () => {
 
@@ -15,11 +15,6 @@ const App = () => {
     await BooksAPI.getAll().then((data) => {
       setBooks(data);
     })
-  }
-
-  const updateShelf = (allBooks) => {
-    const shelf = [...new Set(allBooks.map(book => book.shelf))];
-    return shelf;
   }
 
   const updateBook = async (book, shelf) => {
@@ -38,29 +33,18 @@ const App = () => {
   }, []);
 
   return (
-    <div className='app'>
-      <Router>
-        <Switch>
-          <Route exact path='/' render={() => (
-            <div>
-              <Header />
-              {updateShelf(books).map(shelf =>
-                <Shelves
-                  updateBook={updateBook}
-                  key={shelf}
-                  shelfName={shelf}
-                  books={books.filter(book => book.shelf === shelf)}
-                />
-              )}
-              <SearchButton />
-            </div>
-          )} />
-          <Route path='/searchbooks'>
-            <SearchResults books={books} updateBook={updateBook} />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path='/'>
+          <Homepage books={books} updateBook={updateBook} />
+        </Route>
+        <Route path='/search'>
+          <SearchResults books={books} updateBook={updateBook} />
+        </Route>
+        <Route path="*" render={() => <Redirect to="/" />} />
+      </Switch>
+    </Router>
   )
 }
 

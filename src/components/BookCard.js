@@ -1,29 +1,34 @@
 import React from 'react'
+import { Card, Col } from 'react-bootstrap'
 import MoveToShelfMenu from './MoveToShelfMenu'
 
 const BookCard = ({ book, updateBook }) => {
-
   return (
-    <div className="book">
-      <div className="book-top">
-        <div style={{
-          width: 128,
-          height: 193,
-          backgroundImage: `url(${book.imageLinks &&
-            book.imageLinks.thumbnail})`
-        }} />
+    <Col className="mb-1" xs sm md={6} lg={4} xl={4}>
+      <Card border-variant="dark"
+        bg-variant="dark"
+        text="info"
+        border="dark"
+        className="text-center">
+        <div className="card-horizontal">
+          <Card.Img
+            style={{ width: 128, height: 193 }}
+            src={book.imageLinks && book.imageLinks.thumbnail}
+            alt="Book Cover Not Available">
+          </Card.Img>
+          <Card.Body>
+            <Card.Title>{book.title}</Card.Title>
+            <Card.Subtitle
+              className="text-muted mb-3">
+              {(book.authors) ? (book.authors).join(", ") : 'No Author Listed'}
+            </Card.Subtitle >
+          </Card.Body>
+        </div>
         <MoveToShelfMenu
-          updateBook={updateBook}
-          book={book}
-        />
-      </div>
-      <div className="book-title">{book.title}</div>
-      <div className="book-authors">{
-        (book.authors) ?
-          (book.authors).join(", ") : '*No Author Listed*'
-      }
-      </div>
-    </div>
+            updateBook={updateBook}
+            book={book} />
+      </Card>
+    </Col>
   )
 }
 

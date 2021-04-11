@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import BookList from './BookList';
 import * as BooksAPI from '../BooksAPI';
 import SearchBar from './SearchBar';
+import { Jumbotron } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFrown } from '@fortawesome/free-solid-svg-icons'
 
 const SearchResults = ({ books, updateBook }) => {
 
@@ -30,22 +33,21 @@ const SearchResults = ({ books, updateBook }) => {
     }
   };
 
-
-
   return (
-    <div className="search-books">
+    <Jumbotron className="m-1">
       <SearchBar query={query} handleQuery={handleQuery} />
       <div className="search-books-results">
-        <ol className="books-grid">
-          {bookResults.length > 0 ?
-            <BookList
-              books={bookResults}
-              updateBook={updateBook}
-            /> :
-            <span className="no-results">No Results</span>}
-        </ol>
+        {bookResults.length > 0 ?
+          <BookList
+            books={bookResults}
+            updateBook={updateBook}
+          /> :
+          <h3 className="text-center mt-5">
+            <FontAwesomeIcon className="mr-1" icon={faFrown} />No Results
+          </h3>
+        }
       </div>
-    </div>
+    </Jumbotron>
   )
 };
 

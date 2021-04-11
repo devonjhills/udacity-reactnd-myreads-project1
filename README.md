@@ -96,3 +96,5 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 [Filtering JSON into seperate components](https://stackoverflow.com/questions/54224988/sorting-and-then-filtering-json-data-into-separate-components)
 
 [Optional Chaining and Nullish Coalescing](https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript/)
+
+[Bootstrap Navbar + React Router](https://stackoverflow.com/questions/54843302/reactjs-bootstrap-navbar-and-routing-not-working-together)
