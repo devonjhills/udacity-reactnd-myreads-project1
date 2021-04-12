@@ -15,6 +15,7 @@ export const get = (bookId) =>
   fetch(`${api}/books/${bookId}`, { headers })
     .then(res => res.json())
     .then(data => data.book)
+    .then(console.log('test get'))
 
 export const getAll = () =>
   fetch(`${api}/books`, { headers })

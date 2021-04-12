@@ -4,7 +4,7 @@ import MoveToShelfMenu from './MoveToShelfMenu'
 
 const BookCard = ({ book, updateBook }) => {
   return (
-    <Col className="mb-1" xs sm md={6} lg={4} xl={4}>
+    <Col className="mb-1 mt-2" xs sm md={6} lg={4} xl={4}>
       <Card border-variant="dark"
         bg-variant="dark"
         text="info"
@@ -25,8 +25,8 @@ const BookCard = ({ book, updateBook }) => {
           </Card.Body>
         </div>
         <MoveToShelfMenu
-            updateBook={updateBook}
-            book={book} />
+          updateBook={updateBook}
+          book={book} />
       </Card>
     </Col>
   )

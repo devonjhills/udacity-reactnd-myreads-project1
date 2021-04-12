@@ -1,23 +1,23 @@
 import React from 'react'
 import Shelves from './Shelves'
+import { SHELFINFO } from '../constants'
+import Footer from './Footer';
 
-const Homepage = ({books, updateBook}) => {
+const Homepage = ({ books, updateBook }) => {
 
-  const updateShelf = (allBooks) => {
-    const shelf = [...new Set(allBooks.map(book => book.shelf))];
-    return shelf;
-  }
+  const displayShelves = SHELFINFO.filter(shelf => shelf.key !== 'none');
 
   return (
     <>
-      {updateShelf(books).map(shelf =>
+      {displayShelves.map(shelf =>
         <Shelves
           updateBook={updateBook}
-          key={shelf}
-          shelfName={shelf}
-          books={books.filter(book => book.shelf === shelf)}
+          key={shelf.key}
+          shelfName={shelf.label}
+          books={books.filter(book => book.shelf === shelf.key)}
         />
       )}
+      <Footer />
     </>
   )
 }

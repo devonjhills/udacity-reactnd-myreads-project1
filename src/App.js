@@ -17,15 +17,19 @@ const App = () => {
     })
   }
 
-  const updateBook = async (book, shelf) => {
-    await BooksAPI.update(book, shelf);
-    books.map((thisBook) => {
-      if (thisBook.id === book.id) {
-        thisBook.shelf = shelf;
-      }
-      return thisBook;
-    })
-    getAllBooks();
+  const updateBook = async (book, shelfChange) => {
+    await BooksAPI.update(book, shelfChange).then(() => {
+      let onShelf = false;
+      const newBooks = books.map((thisBook) => {
+        if (thisBook.id === book.id) {
+          onShelf = true;
+          return { ...thisBook, shelf: shelfChange };
+        }
+        return thisBook;
+      });
+      (!onShelf && newBooks.push({ ...book, shelf: shelfChange }))
+      setBooks(newBooks);
+    });
   }
 
   useEffect(() => {
@@ -33,18 +37,18 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path='/'>
-          <Homepage books={books} updateBook={updateBook} />
-        </Route>
-        <Route path='/search'>
-          <SearchResults books={books} updateBook={updateBook} />
-        </Route>
-        <Route path="*" render={() => <Redirect to="/" />} />
-      </Switch>
-    </Router>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path='/'>
+            <Homepage books={books} updateBook={updateBook} />
+          </Route>
+          <Route path='/search'>
+            <SearchResults books={books} updateBook={updateBook} />
+          </Route>
+          <Route path="*" render={() => <Redirect to="/" />} />
+        </Switch>
+      </Router>
   )
 }
 

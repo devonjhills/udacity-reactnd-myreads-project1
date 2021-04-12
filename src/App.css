@@ -1,16 +1,9 @@
 html, body, .root {
-  height: 100%;
-  width: 100%;
   padding-top: 70px;
-  padding-bottom: 70px;
 }
 
 .my-jumbo {
-  margin: 1px 10px;
-}
-
-.my-h1 {
-  padding-bottom: 10px;
+  margin: 10px 5px 2px 5px;
 }
 
 .card-horizontal {
@@ -24,10 +17,22 @@ html, body, .root {
   right: 1px;
 }
 
+.shelf-name {
+  margin-left: 10px;
+  margin-right: 10px;
+  border-bottom: 1px solid rgba(54, 54, 54, 0.315);
+}
+
 .dropdown-toggle::after {
   display: none !important;
 }
 
 .dropdown-toggle {
   border-radius: 50% !important;
+}
+
+.my-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

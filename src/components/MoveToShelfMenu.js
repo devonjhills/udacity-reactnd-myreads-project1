@@ -1,6 +1,7 @@
 import { DropdownButton, Dropdown } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons'
+import { SHELFINFO } from '../constants'
 
 const MoveToShelfMenu = ({ book, updateBook }) => {
 
@@ -8,26 +9,6 @@ const MoveToShelfMenu = ({ book, updateBook }) => {
     const shelf = eventKey;
     updateBook(book, shelf);
   }
-
-  const shelfInfo = [
-    {
-      key: 'currentlyReading',
-      label: 'Currently Reading'
-    },
-    {
-      key: 'wantToRead',
-      label: 'Want To Read'
-    },
-    {
-      key: 'read',
-      label: 'Read'
-    },
-    {
-      key: 'none',
-      label: 'None'
-    }
-
-  ]
 
   return (
     <div className="book-shelf-changer">
@@ -42,7 +23,7 @@ const MoveToShelfMenu = ({ book, updateBook }) => {
         size="sm"
         defaultValue={book.shelf ? book.shelf : 'none'}
         onSelect={handleSelection}>
-        {shelfInfo.map(
+        {SHELFINFO.map(
           (item) => (
             <Dropdown.Item
               key={item.key}
