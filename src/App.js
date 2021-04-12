@@ -37,18 +37,18 @@ const App = () => {
   }, []);
 
   return (
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path='/'>
-            <Homepage books={books} updateBook={updateBook} />
-          </Route>
-          <Route path='/search'>
-            <SearchResults books={books} updateBook={updateBook} />
-          </Route>
-          <Route path="*" render={() => <Redirect to="/" />} />
-        </Switch>
-      </Router>
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path='/'>
+          <Homepage books={books} updateBook={updateBook} />
+        </Route>
+        <Route path='/search'>
+          <SearchResults books={books} updateBook={updateBook} />
+        </Route>
+        <Route path="*" render={() => <Redirect to="/" />} />
+      </Switch>
+    </Router>
   )
 }
 
