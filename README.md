@@ -1,6 +1,8 @@
 # MyReads Project
 First Project for the Udacity React Nanodegree program.
 
+[<< Click here to see a live version of this App >>](https://devon-reactnd-myreads.herokuapp.com/)
+
 ## Instructions
 To view project:
 
